@@ -243,30 +243,34 @@
                       <div class="row home-stats-row">
                         <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                           <div class="home-stat-card">
-                            <span class="home-stat-label">浏览量</span>
+                            <i class="iconfont icon-eye-fill stat-icon"></i>
+                            <span class="home-stat-label">总浏览</span>
                             <span class="home-stat-value" id="home-total-visits">0</span>
-                            <span class="home-stat-note">本机累计打开</span>
+                            <span class="home-stat-note stat-note">次</span>
                           </div>
                         </div>
                         <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                           <div class="home-stat-card">
-                            <span class="home-stat-label">访问次数</span>
+                            <i class="iconfont icon-calendar-fill stat-icon"></i>
+                            <span class="home-stat-label">今日访问</span>
                             <span class="home-stat-value" id="home-today-visits">0</span>
-                            <span class="home-stat-note">今日访问</span>
+                            <span class="home-stat-note stat-note">次</span>
                           </div>
                         </div>
                         <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                           <div class="home-stat-card">
+                            <i class="iconfont icon-clock-fill stat-icon"></i>
                             <span class="home-stat-label">最近访问</span>
                             <span class="home-stat-value home-stat-value--small" id="home-last-visit">-</span>
-                            <span class="home-stat-note">本浏览器记录</span>
+                            <span class="home-stat-note stat-note">本浏览器</span>
                           </div>
                         </div>
                         <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                           <div class="home-stat-card">
+                            <i class="iconfont icon-file-text-fill stat-icon"></i>
                             <span class="home-stat-label">最新文章</span>
                             <a class="home-latest-link" id="home-latest-post" href="#">-</a>
-                            <span class="home-stat-note" id="home-latest-date">-</span>
+                            <span class="home-stat-note stat-note" id="home-latest-date">-</span>
                           </div>
                         </div>
                       </div>
@@ -431,9 +435,13 @@
           rel="nofollow noopener"><span>Fluid</span></a>
       </div>
 
-
-
+    <div class="statistics">
+      <span class="stat-number" id="stat-total-articles">2</span> 篇文章
+      · <span class="stat-number" id="stat-total-words">3.1k+</span> 字
+      · 运行 <span class="stat-number" id="stat-running-days">0</span> 天
     </div>
+
+  </div>
 
   </footer>
 
@@ -571,6 +579,16 @@
           }
         });
       }
+
+      // 计算建站天数
+      function calcDays() {
+        var startDate = new Date('2025-02-06');
+        var now = new Date();
+        var diff = now - startDate;
+        return Math.max(1, Math.floor(diff / (1000 * 60 * 60 * 24)));
+      }
+
+      document.getElementById('stat-running-days').textContent = calcDays();
     })(window, document);
   </script>
 

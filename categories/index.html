@@ -312,19 +312,23 @@
 
   <footer>
     <div class="footer-inner">
-  
+
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
     </div>
-  
-  
-  
+
+  <div class="statistics">
+    <span class="stat-number">2</span> 篇文章
+    · <span class="stat-number">3.1k+</span> 字
+    · 运行 <span class="stat-number" id="stat-running-days">0</span> 天
+  </div>
+
 </div>
 
   </footer>
 
   <!-- Scripts -->
-  
+
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
@@ -352,24 +356,34 @@
         return;
       }
       var text = subtitle.getAttribute('data-typed-text');
-      
+
         typing(text);
-      
+
     })(window, document);
   </script>
 
 
 
 
-  
     <script  src="/js/img-lazyload.js" ></script>
-  
 
 
 
 
   <script  src="/js/local-search.js" ></script>
 
+  <script>
+    (function() {
+      function calcDays() {
+        var startDate = new Date('2025-02-06');
+        var now = new Date();
+        var diff = now - startDate;
+        return Math.max(1, Math.floor(diff / (1000 * 60 * 60 * 24)));
+      }
+      var el = document.getElementById('stat-running-days');
+      if (el) el.textContent = calcDays();
+    })();
+  </script>
 
 
 
